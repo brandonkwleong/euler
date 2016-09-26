@@ -7,22 +7,23 @@ import math
 
 def isNumPrime(number):
     numIsPrime = False
-
+    
     if number <= 3:
         return True
 
-    for x in range(5, number, 2):
+    if number % 2 == 0:
+        return False
+
+    for x in range(2, int(math.sqrt(number))+1):
         if number % x == 0:
             return False
 
     return True
 
-print "Summing primes..."
-
 finalAnswer = 0
-for x in range(1,2000000):
+for x in range(2,2000000):
     if isNumPrime(x):
+        print "{} is prime".format(x)
         finalAnswer += x
 
 print finalAnswer
-
